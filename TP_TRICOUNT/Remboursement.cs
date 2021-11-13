@@ -27,5 +27,9 @@ namespace TP_TRICOUNT
             return this.montant;
         }
         
+        public DateTime GetDate(){
+            return this.date;
+        }
+        
     }
 }
