@@ -24,5 +24,22 @@ namespace TP_TRICOUNT
             this.mesDepenses = new List<Depense>();
         }
 
+        public String GetNom()
+        {
+            return this.nom;
+        }
+        public float GetBalance()
+        {
+            return this.balance;
+        }
+        public float GetCoutTotal()
+        {
+            return this.monCoutTotal;
+        }
+        public float GetRemboursement()
+        {
+            return this.remboursement;
+        }
+
     }
 }
