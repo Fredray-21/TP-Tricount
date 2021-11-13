@@ -22,5 +22,10 @@ namespace TP_TRICOUNT
             this.lePayer = Payer;
         }
 
+        public float GetMontant()
+        {
+            return this.montant;
+        }
+        
     }
 }

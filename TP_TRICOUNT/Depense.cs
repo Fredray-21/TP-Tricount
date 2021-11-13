@@ -25,6 +25,19 @@ namespace TP_TRICOUNT
             this.pConcernes = Concernes;
         }
 
+        public String GetTitre()
+        {
+            return this.titre;
+        }
+        public float GetMontant()
+        {
+            return this.montant;
+        }
+        public DateTime GetDate()
+        {
+            return this.date;
+        }
+
 
 
 
