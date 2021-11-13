@@ -46,5 +46,17 @@ namespace TP_TRICOUNT
             this.balance += Balance;
             return true;
         }
+
+        public bool AddDepense(Depense d)
+        {
+            this.mesDepenses.Add(d);
+            return true;
+        }
+
+        public bool DeleteDense(Depense d)
+        {
+            this.mesDepenses.Remove(d);
+            return true;
+        }
     }
 }
