@@ -41,5 +41,10 @@ namespace TP_TRICOUNT
             return this.remboursement;
         }
 
+        public bool SetBalance(float Balance)
+        {
+            this.balance += Balance;
+            return true;
+        }
     }
 }
