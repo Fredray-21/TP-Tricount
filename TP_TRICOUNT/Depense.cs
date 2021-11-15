@@ -48,6 +48,18 @@ namespace TP_TRICOUNT
             return this.pConcernes;
         }
 
-
+        public override bool Equals(Object obj)
+        {
+            //Check for null and compare run-time types.
+            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            {
+                return false;
+            }
+            else
+            {
+                Depense p = (Depense)obj;
+                return (titre == p.titre) && (montant == p.montant) && (date == p.date);
+            }
+        }
     }
 }

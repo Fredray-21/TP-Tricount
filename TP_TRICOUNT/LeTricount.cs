@@ -34,9 +34,10 @@ namespace TP_TRICOUNT
             return true;
         }
 
-        private static bool SurpimeDepense()
+        private static bool SurpimeDepense(Depense d)
         {
-            throw new NotImplementedException();
+            lesDepenses.Remove(d);
+            return true;
 
         }
     }
