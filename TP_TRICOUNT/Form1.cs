@@ -6,5 +6,10 @@ namespace TP_TRICOUNT
         {
             InitializeComponent();
         }
+
+        private void DataGVdepense_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
