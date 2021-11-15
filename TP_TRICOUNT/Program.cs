@@ -9,6 +9,8 @@ namespace TP_TRICOUNT
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
+
             /* List<Participant> participants = new List<Participant>();
              Participant p1 = new Participant("Hubert");
              Participant p2 = new Participant("Huberts");
@@ -23,7 +25,6 @@ namespace TP_TRICOUNT
             depense.Add(d1);
             depense.Add(d2);
             MessageBox.Show(depense.IndexOf(d2).ToString());*/
-            Application.Run(new Form1());
         }
     }
 }

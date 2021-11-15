@@ -28,8 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDepense = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.DataGVdepense = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,16 +43,16 @@
             this.titleLBLtotalDepense = new System.Windows.Forms.Label();
             this.titleLBLcoutTotal = new System.Windows.Forms.Label();
             this.tabEquilibres = new System.Windows.Forms.TabPage();
+            this.depenseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depenseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -59,7 +62,7 @@
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(777, 497);
+            this.tabControl.Size = new System.Drawing.Size(928, 497);
             this.tabControl.TabIndex = 0;
             // 
             // tabDepense
@@ -74,10 +77,30 @@
             this.tabDepense.Location = new System.Drawing.Point(4, 26);
             this.tabDepense.Name = "tabDepense";
             this.tabDepense.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDepense.Size = new System.Drawing.Size(769, 467);
+            this.tabDepense.Size = new System.Drawing.Size(920, 467);
             this.tabDepense.TabIndex = 0;
             this.tabDepense.Text = "DÉPENSES";
             this.tabDepense.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.980198F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(214, 371);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 19);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "€";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.980198F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(60, 371);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(17, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "€";
             // 
             // DataGVdepense
             // 
@@ -96,7 +119,6 @@
             this.DataGVdepense.RowTemplate.Height = 27;
             this.DataGVdepense.Size = new System.Drawing.Size(511, 313);
             this.DataGVdepense.TabIndex = 5;
-            this.DataGVdepense.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGVdepense_CellContentClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -167,10 +189,14 @@
             this.tabEquilibres.Location = new System.Drawing.Point(4, 26);
             this.tabEquilibres.Name = "tabEquilibres";
             this.tabEquilibres.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEquilibres.Size = new System.Drawing.Size(769, 467);
+            this.tabEquilibres.Size = new System.Drawing.Size(920, 467);
             this.tabEquilibres.TabIndex = 1;
             this.tabEquilibres.Text = "ÉQUILIBRES";
             this.tabEquilibres.UseVisualStyleBackColor = true;
+            // 
+            // depenseBindingSource
+            // 
+            this.depenseBindingSource.DataSource = typeof(TP_TRICOUNT.Depense);
             // 
             // Nom
             // 
@@ -207,38 +233,20 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.980198F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(60, 371);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "€";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.980198F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(214, 371);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 19);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "€";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 521);
+            this.ClientSize = new System.Drawing.Size(952, 521);
             this.Controls.Add(this.tabControl);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabDepense.ResumeLayout(false);
             this.tabDepense.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.depenseBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,5 +272,6 @@
         private DataGridViewTextBoxColumn montant;
         private Label label2;
         private Label label1;
+        private BindingSource depenseBindingSource;
     }
 }
