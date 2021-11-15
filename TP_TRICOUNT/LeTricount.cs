@@ -28,9 +28,10 @@ namespace TP_TRICOUNT
 
         }
 
-        private static bool AjouterParticipant()
+        private static bool AjouterParticipant(Participant a)
         {
-            throw new NotImplementedException();
+            lesParticipants.Add(a);
+            return true;
         }
 
         private static bool SurpimeDepense()
