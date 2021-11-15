@@ -38,7 +38,15 @@ namespace TP_TRICOUNT
             return this.date;
         }
 
+        public Participant GetPayeur()
+        {
+            return this.lePayeur;
+        }
 
+        public List<Participant> GetPConcernes()
+        {
+            return this.pConcernes;
+        }
 
 
     }

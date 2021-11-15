@@ -11,9 +11,21 @@ namespace TP_TRICOUNT
 
         private static List<Depense> lesDepenses = new List<Depense>();
         private static List<Participant> lesParticipants = new List<Participant>();
-        private static bool AjouterDepense()
+        private static bool AjouterDepense(Depense d)
         {
-            throw new NotImplementedException();
+            lesDepenses.Add(d);
+            Participant payeur = d.GetPayeur();
+            List<Participant> listeP = d.GetPConcernes();
+            foreach(Participant p in listeP)
+            {
+                p.AddDepense(d);
+            }
+            if(listeP.IndexOf(payeur) <= 0)
+            {
+                payeur.AddDepense(d);
+            }
+            return true;
+
         }
 
         private static bool AjouterParticipant()
