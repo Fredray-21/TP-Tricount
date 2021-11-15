@@ -20,5 +20,11 @@ namespace TP_TRICOUNT
         {
             throw new NotImplementedException();
         }
+
+        private static bool SurpimeDepense()
+        {
+            throw new NotImplementedException();
+
+        }
     }
 }
