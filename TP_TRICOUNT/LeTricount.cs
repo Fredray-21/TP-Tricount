@@ -11,6 +11,14 @@ namespace TP_TRICOUNT
 
         private static List<Depense> lesDepenses = new List<Depense>();
         private static List<Participant> lesParticipants = new List<Participant>();
+        private static bool AjouterDepense()
+        {
+            throw new NotImplementedException();
+        }
 
+        private static bool AjouterParticipant()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
