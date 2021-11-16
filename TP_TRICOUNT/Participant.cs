@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP_TRICOUNT
 {
-    public class Participant
+    public class Participant : IComparable
     {
         private List<Depense> mesDepenses;
 
@@ -59,18 +59,33 @@ namespace TP_TRICOUNT
             return true;
         }
 
-        public override bool Equals(Object obj)
+       
+        public int CompareTo(object? obj)
         {
-            //Check for null and compare run-time types.
-            if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+            if(this.balance >= 0)
             {
-                return false;
+
+            return this.balance.CompareTo(((Participant)obj).balance) *(-1);
             }
             else
             {
-                Participant p = (Participant)obj;
-                return (nom == p.nom);
+                return this.balance.CompareTo(((Participant)obj).balance);
+
             }
+
         }
+        /*  public override bool Equals(Object obj)
+ {
+     //Check for null and compare run-time types.
+     if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+     {
+         return false;
+     }
+     else
+     {
+         Participant p = (Participant)obj;
+         return (nom == p.nom);
+     }
+ }*/
     }
 }
