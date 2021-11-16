@@ -61,18 +61,8 @@ namespace TP_TRICOUNT
 
        
         public int CompareTo(object? obj)
-        {
-            if(this.balance >= 0)
-            {
-
-            return this.balance.CompareTo(((Participant)obj).balance) *(-1);
-            }
-            else
-            {
-                return this.balance.CompareTo(((Participant)obj).balance);
-
-            }
-
+        {           
+                return this.balance.CompareTo(((Participant)obj).balance)  ;
         }
         /*  public override bool Equals(Object obj)
  {
