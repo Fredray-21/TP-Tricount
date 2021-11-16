@@ -53,7 +53,7 @@ namespace TP_TRICOUNT
             return true;
         }
 
-        public bool DeleteDense(Depense d)
+        public bool RemoveDepense(Depense d)
         {
             this.mesDepenses.Remove(d);
             return true;

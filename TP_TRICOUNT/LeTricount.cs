@@ -34,7 +34,7 @@ namespace TP_TRICOUNT
             return true;
         }
 
-        private static bool SurpimeDepense(Depense d)
+        private static bool SuprimeDepense(Depense d)
         {
             lesDepenses.Remove(d);
             return true;
