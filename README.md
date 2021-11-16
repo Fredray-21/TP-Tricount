@@ -1,4 +1,5 @@
 # TP_TRICOUNT
 
 ## to do:
-Create Database
+Create methode CompareTo()
+Interface :  IComparabl
