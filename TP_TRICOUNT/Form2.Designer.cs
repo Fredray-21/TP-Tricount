@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDepense = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAddParticipant = new System.Windows.Forms.Button();
+            this.txtBNomParticipant = new System.Windows.Forms.TextBox();
             this.lbListParticipants = new System.Windows.Forms.ListBox();
             this.btnAddDepense = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,8 +55,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtBNomParticipant = new System.Windows.Forms.TextBox();
-            this.btnAddParticipant = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -72,6 +73,7 @@
             // 
             // tabDepense
             // 
+            this.tabDepense.Controls.Add(this.label3);
             this.tabDepense.Controls.Add(this.btnAddParticipant);
             this.tabDepense.Controls.Add(this.txtBNomParticipant);
             this.tabDepense.Controls.Add(this.lbListParticipants);
@@ -91,11 +93,38 @@
             this.tabDepense.Text = "DÉPENSES";
             this.tabDepense.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(723, 2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 24);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Participants :";
+            // 
+            // btnAddParticipant
+            // 
+            this.btnAddParticipant.Location = new System.Drawing.Point(727, 238);
+            this.btnAddParticipant.Name = "btnAddParticipant";
+            this.btnAddParticipant.Size = new System.Drawing.Size(142, 42);
+            this.btnAddParticipant.TabIndex = 12;
+            this.btnAddParticipant.Text = "Ajouter le Participant";
+            this.btnAddParticipant.UseVisualStyleBackColor = true;
+            this.btnAddParticipant.Click += new System.EventHandler(this.btnAddParticipant_Click);
+            // 
+            // txtBNomParticipant
+            // 
+            this.txtBNomParticipant.Location = new System.Drawing.Point(727, 207);
+            this.txtBNomParticipant.Name = "txtBNomParticipant";
+            this.txtBNomParticipant.Size = new System.Drawing.Size(187, 25);
+            this.txtBNomParticipant.TabIndex = 11;
+            // 
             // lbListParticipants
             // 
             this.lbListParticipants.FormattingEnabled = true;
             this.lbListParticipants.ItemHeight = 17;
-            this.lbListParticipants.Location = new System.Drawing.Point(727, 6);
+            this.lbListParticipants.Location = new System.Drawing.Point(727, 28);
             this.lbListParticipants.Name = "lbListParticipants";
             this.lbListParticipants.Size = new System.Drawing.Size(187, 174);
             this.lbListParticipants.TabIndex = 10;
@@ -108,6 +137,7 @@
             this.btnAddDepense.TabIndex = 9;
             this.btnAddDepense.Text = "Ajouter une Dépenses";
             this.btnAddDepense.UseVisualStyleBackColor = true;
+            this.btnAddDepense.Click += new System.EventHandler(this.btnAddDepense_Click);
             // 
             // label2
             // 
@@ -268,23 +298,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
-            // txtBNomParticipant
-            // 
-            this.txtBNomParticipant.Location = new System.Drawing.Point(727, 186);
-            this.txtBNomParticipant.Name = "txtBNomParticipant";
-            this.txtBNomParticipant.Size = new System.Drawing.Size(187, 25);
-            this.txtBNomParticipant.TabIndex = 11;
-            // 
-            // btnAddParticipant
-            // 
-            this.btnAddParticipant.Location = new System.Drawing.Point(727, 217);
-            this.btnAddParticipant.Name = "btnAddParticipant";
-            this.btnAddParticipant.Size = new System.Drawing.Size(142, 42);
-            this.btnAddParticipant.TabIndex = 12;
-            this.btnAddParticipant.Text = "Ajouter le Participant";
-            this.btnAddParticipant.UseVisualStyleBackColor = true;
-            this.btnAddParticipant.Click += new System.EventHandler(this.btnAddParticipant_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -332,5 +345,6 @@
         private ListBox lbListParticipants;
         private Button btnAddParticipant;
         private TextBox txtBNomParticipant;
+        private Label label3;
     }
 }

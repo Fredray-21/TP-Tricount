@@ -39,6 +39,10 @@ namespace TP_TRICOUNT
 
         }
 
+        public int GetID()
+        {
+           return this.ID;
+        }
         public String GetNom()
         {
             return this.nom;

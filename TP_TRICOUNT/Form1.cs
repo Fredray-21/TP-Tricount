@@ -49,16 +49,19 @@ namespace TP_TRICOUNT
         private void btnSelectTricount_Click(object sender, EventArgs e)
         {
             Tricount t = (Tricount)LBtricount.SelectedItem;
-            if(t == null)
+            if (t == null)
             {
                 MessageBox.Show("Veuillez selectionée un Tricount");
             }
-            LeTricount.SessionIdTricount = t;
+            else
+            {
+                LeTricount.SessionIdTricount = t;
+                this.Hide();
+                var form2 = new Form2();
+                form2.Closed += (s, args) => this.Close();
+                form2.Show();
+            }
 
-            this.Hide();
-            var form2 = new Form2();
-            form2.Closed += (s, args) => this.Close();
-            form2.Show();
         }
     }
 }

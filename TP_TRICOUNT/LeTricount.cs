@@ -79,6 +79,7 @@ namespace TP_TRICOUNT
 
         public static List<Participant> GetToutParticipantPARtricount(Tricount t) // btn afficher tout les comptes
         {
+            lesParticipants.Clear();
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
 
@@ -103,7 +104,7 @@ namespace TP_TRICOUNT
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
 
-            
+
             String reqI = $"INSERT INTO membre (id,nom,balance,monCoutTotal,id_tricount) VALUES(null,'{p.GetNom()}',{p.GetBalance()},{p.GetCoutTotal()},{p.GetTricout()})";
             objCmd.CommandText = reqI;
             int nbMaj = objCmd.ExecuteNonQuery();
@@ -123,9 +124,30 @@ namespace TP_TRICOUNT
         }
 
 
-        public static bool AjouterDepense(Depense d)
+        public static object AjouterDepense(Depense d)
         {
-            lesDepenses.Add(d);
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+            MessageBox.Show(d.GetDate().ToString());
+            String reqI = $"INSERT INTO depense (id,intutile,montant,date,id_payeur) VALUES(null,'{d.GetTitre()}',{d.GetMontant()},'{d.GetDate().ToString("yyyy-MM-dd")}','{d.GetPayeur().GetID()}')";
+            objCmd.CommandText = reqI;
+            int nbMaj = objCmd.ExecuteNonQuery();
+            if (nbMaj == 1)
+            {
+                String reqNumId = "SELECT LAST_INSERT_ID()";
+                objCmd.CommandText = reqNumId;
+                object numDep = objCmd.ExecuteScalar();
+
+                return numDep;
+            }
+            else
+            {
+                return -1;
+            }
+
+
+
+            /*lesDepenses.Add(d);
             Participant payeur = d.GetPayeur();
             List<Participant> listeP = d.GetPConcernes();
             foreach(Participant p in listeP)
@@ -136,11 +158,22 @@ namespace TP_TRICOUNT
             {
                 payeur.AddDepense(d);
             }
-            return true;
+            return true; */
 
         }
 
-        
+        public static bool AjouterConcerner(int pConcerne, int IdDepense)
+        {
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+            String reqI = $"INSERT INTO concerner (id_concerne,id_depense) VALUES({pConcerne},'{IdDepense}')";
+            objCmd.CommandText = reqI;
+            int nbMaj = objCmd.ExecuteNonQuery();
+
+            return nbMaj == 1;
+
+        }
+
 
         private static bool SuprimeDepense(Depense d)
         {

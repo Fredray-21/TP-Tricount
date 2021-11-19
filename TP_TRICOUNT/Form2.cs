@@ -71,5 +71,14 @@ namespace TP_TRICOUNT
                 }
             }
         }
+
+        private void btnAddDepense_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            var form3 = new Form3();
+            form3.Show();
+
+            // form2.Closed += (s, args) => this.Close();
+        }
     }
 }

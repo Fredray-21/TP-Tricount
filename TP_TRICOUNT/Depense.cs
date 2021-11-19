@@ -11,13 +11,14 @@ namespace TP_TRICOUNT
         private Participant lePayeur;
         private List<Participant> pConcernes = new List<Participant>();
 
-
+        private int ID;
         private String titre;
         private float montant;
         private DateTime date;
 
         public Depense(String Titre, float Montant, DateTime Date, Participant Payeur, List<Participant> Concernes)
         {
+            this.ID = 0;
             this.titre = Titre;
             this.montant = Montant;
             this.date = Date;
@@ -25,6 +26,10 @@ namespace TP_TRICOUNT
             this.pConcernes = Concernes;
         }
 
+        public int GetID()
+        {
+            return this.ID;
+        }
         public String GetTitre()
         {
             return this.titre;
@@ -48,7 +53,7 @@ namespace TP_TRICOUNT
             return this.pConcernes;
         }
 
-        public override bool Equals(Object obj)
+        /*public override bool Equals(Object obj)
         {
             //Check for null and compare run-time types.
             if ((obj == null) || !this.GetType().Equals(obj.GetType()))
@@ -60,6 +65,6 @@ namespace TP_TRICOUNT
                 Depense p = (Depense)obj;
                 return (titre == p.titre) && (montant == p.montant) && (date == p.date);
             }
-        }
+        }*/
     }
 }
