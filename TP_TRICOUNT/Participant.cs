@@ -62,7 +62,7 @@ namespace TP_TRICOUNT
        
         public int CompareTo(object? obj)
         {           
-                return this.balance.CompareTo(((Participant)obj).balance)  ;
+                return Math.Abs(this.balance).CompareTo(Math.Abs(((Participant)obj).balance)) *(-1);
         }
         /*  public override bool Equals(Object obj)
  {
