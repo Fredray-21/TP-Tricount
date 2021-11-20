@@ -31,13 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDepense = new System.Windows.Forms.TabPage();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddParticipant = new System.Windows.Forms.Button();
             this.txtBNomParticipant = new System.Windows.Forms.TextBox();
             this.lbListParticipants = new System.Windows.Forms.ListBox();
             this.btnAddDepense = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.DataGVdepense = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +56,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnRetour = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -82,8 +80,6 @@
             this.tabDepense.Controls.Add(this.txtBNomParticipant);
             this.tabDepense.Controls.Add(this.lbListParticipants);
             this.tabDepense.Controls.Add(this.btnAddDepense);
-            this.tabDepense.Controls.Add(this.label2);
-            this.tabDepense.Controls.Add(this.label1);
             this.tabDepense.Controls.Add(this.DataGVdepense);
             this.tabDepense.Controls.Add(this.lblTotalDep);
             this.tabDepense.Controls.Add(this.lblCoutTotal);
@@ -96,6 +92,17 @@
             this.tabDepense.TabIndex = 0;
             this.tabDepense.Text = "DÉPENSES";
             this.tabDepense.UseVisualStyleBackColor = true;
+            // 
+            // btnRetour
+            // 
+            this.btnRetour.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRetour.Location = new System.Drawing.Point(825, 408);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(89, 44);
+            this.btnRetour.TabIndex = 14;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // label3
             // 
@@ -143,26 +150,6 @@
             this.btnAddDepense.Text = "Ajouter une Dépenses";
             this.btnAddDepense.UseVisualStyleBackColor = true;
             this.btnAddDepense.Click += new System.EventHandler(this.btnAddDepense_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.980198F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(214, 371);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 19);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "€";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.980198F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(60, 371);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(17, 19);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "€";
             // 
             // DataGVdepense
             // 
@@ -335,17 +322,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
-            // btnRetour
-            // 
-            this.btnRetour.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRetour.Location = new System.Drawing.Point(825, 408);
-            this.btnRetour.Name = "btnRetour";
-            this.btnRetour.Size = new System.Drawing.Size(89, 44);
-            this.btnRetour.TabIndex = 14;
-            this.btnRetour.Text = "Retour";
-            this.btnRetour.UseVisualStyleBackColor = true;
-            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -381,8 +357,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private Label label2;
-        private Label label1;
         private BindingSource depenseBindingSource;
         private Label lblLeTricountActuel;
         private Button btnAddDepense;

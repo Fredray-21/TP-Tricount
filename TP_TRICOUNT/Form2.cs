@@ -8,6 +8,7 @@ namespace TP_TRICOUNT
             MAJlblSession();
             MAJlisteBParticipant();
             MAJlisteDepence();
+            MAJmontantTotal();
 
         }
         private void MAJlisteBParticipant()
@@ -20,6 +21,20 @@ namespace TP_TRICOUNT
         {
             Tricount t = LeTricount.SessionIdTricount;
             lblLeTricountActuel.Text = $"Tricount Actuel : {t.GetNom()}";
+        }
+
+        public void MAJmontantTotal()
+        {
+            decimal montant = LeTricount.GetTotalDepenses(LeTricount.SessionIdTricount);
+            if(montant == 0)
+            {
+                lblTotalDep.Text = "00,00 €";
+
+            }
+            else
+            {
+                lblTotalDep.Text = montant.ToString()+" €";
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -86,7 +101,7 @@ namespace TP_TRICOUNT
         {
             if (String.IsNullOrWhiteSpace(txtBNomParticipant.Text))
             {
-                MessageBox.Show("Veuiller rentré un Nom Valide");
+                MessageBox.Show("Veuiller rentré un Nom Valide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -96,12 +111,12 @@ namespace TP_TRICOUNT
                 if (LastID != null)
                 {
                     txtBNomParticipant.Clear();
-                    MessageBox.Show($"L'ajout à bien été effectue le Participant a pour N°{LastID}");
+                    MessageBox.Show($"L'ajout à bien été effectue le Participant a pour N°{LastID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
                 else
                 {
-                    MessageBox.Show("L'ajout n'a pas été effectue");
+                    MessageBox.Show("L'ajout n'a pas été effectue", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

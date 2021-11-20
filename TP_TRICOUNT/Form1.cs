@@ -28,19 +28,20 @@ namespace TP_TRICOUNT
         {
             if (String.IsNullOrWhiteSpace(txtBNameTricount.Text))
             {
-                MessageBox.Show("Veuiller rentré un Nom Valide");
+                MessageBox.Show("Veuiller rentré un Nom Valide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                LBtricount.Items.Add(txtBNameTricount.Text);
                 object LastID = LeTricount.AjouterTriCount(txtBNameTricount.Text);
                 if (LastID != null)
                 {
-                    MessageBox.Show($"L'ajout à bien été effectue le TriCount a pour N°{LastID}");
+                    Tricount t = new Tricount(Convert.ToInt32(LastID), txtBNameTricount.Text);
+                    LBtricount.Items.Add(t);
+                    MessageBox.Show($"L'ajout à bien été effectue le TriCount a pour N°{LastID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("L'ajout n'a pas été effectue");
+                    MessageBox.Show("L'ajout n'a pas été effectue", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -51,7 +52,7 @@ namespace TP_TRICOUNT
             Tricount t = (Tricount)LBtricount.SelectedItem;
             if (t == null)
             {
-                MessageBox.Show("Veuillez selectionée un Tricount");
+                MessageBox.Show("Veuillez selectionée un Tricount", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -62,6 +63,26 @@ namespace TP_TRICOUNT
                 form2.Show();
             }
 
+        }
+
+        private void btnDeleteTricount_Click(object sender, EventArgs e)
+        {
+            Tricount t = (Tricount)LBtricount.SelectedItem;
+            if(t == null)
+            {
+                MessageBox.Show("Veuiller selectioné un TriCount a suprimer", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Voulez-vous supprimer ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    LeTricount.DeleteTricount(t);
+                    MAJlisteBTricount();
+                    MessageBox.Show("Le Tricount à bien été supprimer ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            
         }
     }
 }

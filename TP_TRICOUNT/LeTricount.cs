@@ -77,6 +77,18 @@ namespace TP_TRICOUNT
             return lesTricount;
         }
 
+        internal static bool DeleteTricount(Tricount t)
+        {
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+
+            String reqI = $"DELETE FROM tricount WHERE id = '{t.GetID()}'";
+            objCmd.CommandText = reqI;
+            int nbMaj = objCmd.ExecuteNonQuery();
+            return nbMaj == 1;
+
+        }
+
         public static List<Participant> GetToutParticipantPARtricount(Tricount t) // btn afficher tout les comptes
         {
             lesParticipants.Clear();
@@ -98,7 +110,7 @@ namespace TP_TRICOUNT
             return lesParticipants;
         }
 
-        public static Participant GetParticipantParID(int IDParticipant) // btn afficher tout les comptes
+        public static Participant GetParticipantParID(int IDParticipant)
         {
             lesParticipants.Clear();
             MySqlCommand objCmd;
@@ -120,7 +132,7 @@ namespace TP_TRICOUNT
             return p;
         }
 
-        public static List<Depense> GetToutDepensePARtricount(Tricount t) // btn afficher tout les comptes
+        public static List<Depense> GetToutDepensePARtricount(Tricount t)
         {
             lesDepenses.Clear();
             MySqlCommand objCmd;
@@ -195,7 +207,7 @@ namespace TP_TRICOUNT
         {
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
-            String reqI = $"INSERT INTO depense (idDep,intutile,montant,date,id_payeur) VALUES(null,'{d.GetTitre()}',{d.GetMontant()},'{d.GetDate().ToString("yyyy-MM-dd")}','{d.GetPayeur().GetID()}')";
+            String reqI = $"INSERT INTO depense (idDep,intutile,montant,date,id_payeur) VALUES(null,'{d.GetTitre()}','{d.GetMontant().ToString().Replace(',', '.')}','{d.GetDate().ToString("yyyy-MM-dd")}','{d.GetPayeur().GetID()}')";
             objCmd.CommandText = reqI;
             int nbMaj = objCmd.ExecuteNonQuery();
             if (nbMaj == 1)
@@ -240,6 +252,26 @@ namespace TP_TRICOUNT
 
         }
 
+        public static decimal GetTotalDepenses(Tricount t)
+        {
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+
+            MySqlDataReader rdr;
+            decimal Total = 0;
+            String reqCount = $"SELECT DISTINCT(idDep), montant FROM depense INNER JOIN concerner ON depense.idDep = concerner.id_depense INNER JOIN membre ON membre.id = concerner.id_concerne where  id_tricount = {t.GetID()}";
+            objCmd.CommandText = reqCount;
+            rdr = objCmd.ExecuteReader();
+
+            while (rdr.Read())
+            {
+                decimal.TryParse(((float)rdr["montant"]).ToString(), out decimal Montant);
+                Total += Montant;
+
+            }
+            rdr.Close();
+            return Total;
+        }
 
         private static bool SuprimeDepense(Depense d)
         {
