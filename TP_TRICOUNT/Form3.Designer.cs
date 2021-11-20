@@ -30,6 +30,7 @@
         {
             this.txtBTitre = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAddDep = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxPourQui = new System.Windows.Forms.CheckedListBox();
             this.lblPayer = new System.Windows.Forms.Label();
@@ -39,7 +40,7 @@
             this.txtBMontant = new System.Windows.Forms.TextBox();
             this.lblMontant = new System.Windows.Forms.Label();
             this.lblTitre = new System.Windows.Forms.Label();
-            this.btnAddDep = new System.Windows.Forms.Button();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRetour);
             this.groupBox1.Controls.Add(this.btnAddDep);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.checkBoxPourQui);
@@ -71,6 +73,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nouvelle Dépense";
+            // 
+            // btnAddDep
+            // 
+            this.btnAddDep.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAddDep.Location = new System.Drawing.Point(249, 484);
+            this.btnAddDep.Name = "btnAddDep";
+            this.btnAddDep.Size = new System.Drawing.Size(180, 49);
+            this.btnAddDep.TabIndex = 11;
+            this.btnAddDep.Text = "Ajouter la dépense";
+            this.btnAddDep.UseVisualStyleBackColor = true;
+            this.btnAddDep.Click += new System.EventHandler(this.btnAddDep_Click);
             // 
             // label1
             // 
@@ -156,16 +169,16 @@
             this.lblTitre.TabIndex = 2;
             this.lblTitre.Text = "Titre :";
             // 
-            // btnAddDep
+            // btnRetour
             // 
-            this.btnAddDep.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAddDep.Location = new System.Drawing.Point(249, 484);
-            this.btnAddDep.Name = "btnAddDep";
-            this.btnAddDep.Size = new System.Drawing.Size(180, 49);
-            this.btnAddDep.TabIndex = 11;
-            this.btnAddDep.Text = "Ajouter la dépense";
-            this.btnAddDep.UseVisualStyleBackColor = true;
-            this.btnAddDep.Click += new System.EventHandler(this.btnAddDep_Click);
+            this.btnRetour.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRetour.Location = new System.Drawing.Point(6, 501);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(81, 36);
+            this.btnRetour.TabIndex = 12;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // Form3
             // 
@@ -195,5 +208,6 @@
         private Label label1;
         private CheckedListBox checkBoxPourQui;
         private Button btnAddDep;
+        private Button btnRetour;
     }
 }

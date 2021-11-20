@@ -7,6 +7,7 @@ namespace TP_TRICOUNT
             InitializeComponent();
             MAJlblSession();
             MAJlisteBParticipant();
+            MAJlisteDepence();
 
         }
         private void MAJlisteBParticipant()
@@ -46,6 +47,39 @@ namespace TP_TRICOUNT
                 };
             DataGVdepense.Rows.Add(row);
             */
+
+        }
+
+        public void MAJlisteDepence()
+        {
+            DataGVdepense.Rows.Clear();
+            Tricount t = LeTricount.SessionIdTricount;
+            List<Depense> listDepense = LeTricount.GetToutDepensePARtricount(t);
+
+
+            foreach (Depense d in listDepense)
+            {
+                List<Participant> listPconcerner = LeTricount.GetPconcernePARtricount(d);
+                string txt = "";
+
+                foreach (Participant p in listPconcerner)
+                {
+                    txt = txt + p.GetNom() + "/";
+                }
+
+
+                string[] row;
+                row = new string[]
+                {
+                d.GetID().ToString(),
+                d.GetTitre().ToString(),
+                d.GetPayeur().GetNom().ToString(),
+                d.GetDate().ToString("dd-MM-yyyy"),
+                d.GetMontant().ToString(),
+               txt
+                    };
+                DataGVdepense.Rows.Add(row);
+            }
         }
 
         private void btnAddParticipant_Click(object sender, EventArgs e)
@@ -74,11 +108,18 @@ namespace TP_TRICOUNT
 
         private void btnAddDepense_Click(object sender, EventArgs e)
         {
-            //this.Hide();
+            this.Hide();
             var form3 = new Form3();
             form3.Show();
+            form3.Closed += (s, args) => this.Close();
+        }
 
-            // form2.Closed += (s, args) => this.Close();
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form1 = new Form1();
+            form1.Show();
+            form1.Closed += (s, args) => this.Close();
         }
     }
 }

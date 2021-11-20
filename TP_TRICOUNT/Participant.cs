@@ -28,6 +28,17 @@ namespace TP_TRICOUNT
             this.mesDepenses = new List<Depense>();
         }
 
+        public Participant(int Id,String Nom, int Id_Tricount)
+        {
+            this.ID = Id;
+            this.nom = Nom;
+            this.balance = 0;
+            this.monCoutTotal = 0;
+            this.remboursement = 0;
+            this.ID_tricount = Id_Tricount;
+            this.mesDepenses = new List<Depense>();
+        }
+
         public Participant(int Id, String Nom,float Balance, float MonCoutTotal, int ID_tricount)
         {
             this.ID = Id;

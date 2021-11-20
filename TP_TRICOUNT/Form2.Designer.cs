@@ -39,10 +39,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DataGVdepense = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.montant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.concerner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTotalDep = new System.Windows.Forms.Label();
             this.lblCoutTotal = new System.Windows.Forms.Label();
             this.titleLBLtotalDepense = new System.Windows.Forms.Label();
@@ -55,6 +57,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -73,6 +76,7 @@
             // 
             // tabDepense
             // 
+            this.tabDepense.Controls.Add(this.btnRetour);
             this.tabDepense.Controls.Add(this.label3);
             this.tabDepense.Controls.Add(this.btnAddParticipant);
             this.tabDepense.Controls.Add(this.txtBNomParticipant);
@@ -131,9 +135,10 @@
             // 
             // btnAddDepense
             // 
+            this.btnAddDepense.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAddDepense.Location = new System.Drawing.Point(346, 338);
             this.btnAddDepense.Name = "btnAddDepense";
-            this.btnAddDepense.Size = new System.Drawing.Size(175, 52);
+            this.btnAddDepense.Size = new System.Drawing.Size(208, 52);
             this.btnAddDepense.TabIndex = 9;
             this.btnAddDepense.Text = "Ajouter une Dépenses";
             this.btnAddDepense.UseVisualStyleBackColor = true;
@@ -165,41 +170,73 @@
             this.DataGVdepense.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGVdepense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGVdepense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.dataGridViewTextBoxColumn5,
             this.payeur,
             this.date,
-            this.montant});
+            this.montant,
+            this.concerner});
             this.DataGVdepense.Location = new System.Drawing.Point(10, 6);
             this.DataGVdepense.MultiSelect = false;
             this.DataGVdepense.Name = "DataGVdepense";
             this.DataGVdepense.RowHeadersWidth = 43;
             this.DataGVdepense.RowTemplate.Height = 27;
-            this.DataGVdepense.Size = new System.Drawing.Size(511, 313);
+            this.DataGVdepense.Size = new System.Drawing.Size(707, 313);
             this.DataGVdepense.TabIndex = 5;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.id.FillWeight = 58.82353F;
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dataGridViewTextBoxColumn5
             // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.FillWeight = 110.2941F;
             this.dataGridViewTextBoxColumn5.HeaderText = "Nom";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 105;
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // payeur
             // 
+            this.payeur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.payeur.FillWeight = 110.2941F;
             this.payeur.HeaderText = "Payer par";
             this.payeur.Name = "payeur";
-            this.payeur.Width = 105;
+            this.payeur.ReadOnly = true;
+            this.payeur.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // date
             // 
+            this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.date.FillWeight = 110.2941F;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
-            this.date.Width = 105;
+            this.date.ReadOnly = true;
+            this.date.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // montant
             // 
+            this.montant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.montant.FillWeight = 110.2941F;
             this.montant.HeaderText = "Montant";
             this.montant.Name = "montant";
-            this.montant.Width = 105;
+            this.montant.ReadOnly = true;
+            this.montant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // concerner
+            // 
+            this.concerner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.concerner.HeaderText = "Pour";
+            this.concerner.Name = "concerner";
+            this.concerner.ReadOnly = true;
+            this.concerner.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.concerner.Width = 230;
             // 
             // lblTotalDep
             // 
@@ -298,6 +335,17 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
+            // btnRetour
+            // 
+            this.btnRetour.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRetour.Location = new System.Drawing.Point(825, 408);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(89, 44);
+            this.btnRetour.TabIndex = 14;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -333,10 +381,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn payeur;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn montant;
         private Label label2;
         private Label label1;
         private BindingSource depenseBindingSource;
@@ -346,5 +390,12 @@
         private Button btnAddParticipant;
         private TextBox txtBNomParticipant;
         private Label label3;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn payeur;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn montant;
+        private DataGridViewTextBoxColumn concerner;
+        private Button btnRetour;
     }
 }

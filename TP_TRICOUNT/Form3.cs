@@ -72,7 +72,11 @@ namespace TP_TRICOUNT
                         {
                             LeTricount.AjouterConcerner(ParticipantConcere.GetID(),IdDepense);
                         }
-                        this.Close();
+
+                        this.Hide();
+                        var form2 = new Form2();
+                        form2.Show();
+                        form2.Closed += (s, args) => this.Close();
                         MessageBox.Show($"L'ajout de la Dépense à bien été effectue avec pour N°{LastID}");
 
                     }
@@ -83,6 +87,14 @@ namespace TP_TRICOUNT
                 }
 
             }
+        }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form2 = new Form2();
+            form2.Show();
+            form2.Closed += (s, args) => this.Close();
         }
     }
 }
