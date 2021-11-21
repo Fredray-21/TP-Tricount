@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDepense = new System.Windows.Forms.TabPage();
             this.btnSuprParticipant = new System.Windows.Forms.Button();
@@ -165,7 +173,10 @@
             // 
             // DataGVdepense
             // 
-            this.DataGVdepense.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGVdepense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DataGVdepense.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DataGVdepense.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DataGVdepense.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGVdepense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGVdepense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -175,6 +186,14 @@
             this.date,
             this.montant,
             this.concerner});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.267326F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGVdepense.DefaultCellStyle = dataGridViewCellStyle8;
             this.DataGVdepense.Location = new System.Drawing.Point(10, 6);
             this.DataGVdepense.MultiSelect = false;
             this.DataGVdepense.Name = "DataGVdepense";
@@ -186,7 +205,9 @@
             // id
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.id.FillWeight = 58.82353F;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.id.FillWeight = 58F;
             this.id.HeaderText = "id";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -195,6 +216,8 @@
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn5.FillWeight = 110.2941F;
             this.dataGridViewTextBoxColumn5.HeaderText = "Nom";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -204,6 +227,8 @@
             // payeur
             // 
             this.payeur.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.payeur.DefaultCellStyle = dataGridViewCellStyle4;
             this.payeur.FillWeight = 110.2941F;
             this.payeur.HeaderText = "Payer par";
             this.payeur.Name = "payeur";
@@ -213,6 +238,8 @@
             // date
             // 
             this.date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.date.DefaultCellStyle = dataGridViewCellStyle5;
             this.date.FillWeight = 110.2941F;
             this.date.HeaderText = "Date";
             this.date.Name = "date";
@@ -222,8 +249,10 @@
             // montant
             // 
             this.montant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.montant.FillWeight = 110.2941F;
-            this.montant.HeaderText = "Montant";
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.montant.DefaultCellStyle = dataGridViewCellStyle6;
+            this.montant.FillWeight = 115F;
+            this.montant.HeaderText = "Montant (€)";
             this.montant.Name = "montant";
             this.montant.ReadOnly = true;
             this.montant.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -231,6 +260,8 @@
             // concerner
             // 
             this.concerner.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.concerner.DefaultCellStyle = dataGridViewCellStyle7;
             this.concerner.HeaderText = "Pour";
             this.concerner.Name = "concerner";
             this.concerner.ReadOnly = true;
@@ -376,13 +407,13 @@
         private Button btnAddParticipant;
         private TextBox txtBNomParticipant;
         private Label label3;
+        private Button btnRetour;
+        private Button btnSuprParticipant;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn payeur;
         private DataGridViewTextBoxColumn date;
         private DataGridViewTextBoxColumn montant;
         private DataGridViewTextBoxColumn concerner;
-        private Button btnRetour;
-        private Button btnSuprParticipant;
     }
 }

@@ -9,6 +9,7 @@ namespace TP_TRICOUNT
             MAJlisteBParticipant();
             MAJlisteDepence();
             MAJmontantTotal();
+            this.DataGVdepense.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
         }
         private void MAJlisteBParticipant()
@@ -26,14 +27,14 @@ namespace TP_TRICOUNT
         public void MAJmontantTotal()
         {
             decimal montant = LeTricount.GetTotalDepenses(LeTricount.SessionIdTricount);
-            if(montant == 0)
+            if (montant == 0)
             {
                 lblTotalDep.Text = "00,00 €";
 
             }
             else
             {
-                lblTotalDep.Text = montant.ToString()+" €";
+                lblTotalDep.Text = montant.ToString() + " €";
             }
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace TP_TRICOUNT
 
                 foreach (Participant p in listPconcerner)
                 {
-                    txt = txt + p.GetNom() + "/";
+                    txt = txt + p.GetNom() + " / ";
                 }
 
 
@@ -140,7 +141,7 @@ namespace TP_TRICOUNT
         private void btnSuprParticipant_Click(object sender, EventArgs e)
         {
             Participant p = (Participant)lbListParticipants.SelectedItem;
-            if(p == null)
+            if (p == null)
             {
                 MessageBox.Show("Veuiller Selectioné un Participante", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
