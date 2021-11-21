@@ -73,6 +73,11 @@ namespace TP_TRICOUNT
 
         public bool SetBalance(float Balance)
         {
+            this.balance = Balance;
+            return true;
+        }
+        public bool AddToBalance(float Balance)
+        {
             this.balance += Balance;
             return true;
         }
@@ -91,8 +96,9 @@ namespace TP_TRICOUNT
 
        
         public int CompareTo(object? obj)
-        {           
-                return Math.Abs(this.balance).CompareTo(Math.Abs(((Participant)obj).balance)) *(-1);
+        {
+            // return Math.Abs(this.balance).CompareTo(Math.Abs(((Participant)obj).balance)) *(-1);
+            return this.ID.CompareTo(((Participant)obj).ID);
         }
 
         public int GetTricout()
@@ -102,7 +108,7 @@ namespace TP_TRICOUNT
 
         public override string ToString()
         {
-            return $"{this.nom}";
+            return $"{this.nom} / {this.balance}";
         }
         /*  public override bool Equals(Object obj)
 {

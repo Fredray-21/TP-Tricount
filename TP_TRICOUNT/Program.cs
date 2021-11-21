@@ -10,6 +10,7 @@ namespace TP_TRICOUNT
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+                      
 
             /* List<Participant> list = new List<Participant>();
              Participant p1 = new Participant("p1");

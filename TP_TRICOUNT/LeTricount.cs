@@ -110,27 +110,7 @@ namespace TP_TRICOUNT
             return lesParticipants;
         }
 
-        public static Participant GetParticipantParID(int IDParticipant)
-        {
-            lesParticipants.Clear();
-            MySqlCommand objCmd;
-            objCmd = conn.CreateCommand();
-
-            MySqlDataReader rdrP;
-            Participant p = null;
-
-            String reqCount = $"SELECT * FROM membre WHERE id = {IDParticipant}";
-            objCmd.CommandText = reqCount;
-            rdrP = objCmd.ExecuteReader();
-
-            while (rdrP.Read())
-            {
-                p = new Participant((int)rdrP["id"], (string)rdrP["nom"], (float)rdrP["balance"], (float)rdrP["monCoutTotal"], (int)rdrP["id_tricount"]);
-
-            }
-            rdrP.Close();
-            return p;
-        }
+       
 
         public static List<Depense> GetToutDepensePARtricount(Tricount t)
         {
@@ -223,8 +203,6 @@ namespace TP_TRICOUNT
                 return -1;
             }
 
-
-
             /*lesDepenses.Add(d);
             Participant payeur = d.GetPayeur();
             List<Participant> listeP = d.GetPConcernes();
@@ -240,11 +218,40 @@ namespace TP_TRICOUNT
 
         }
 
-        public static bool AjouterConcerner(int pConcerne, int IdDepense)
+        public static bool AjouterBalance(Participant p)
         {
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
-            String reqI = $"INSERT INTO concerner (id_concerne,id_depense) VALUES({pConcerne},'{IdDepense}')";
+            String reqI = $"UPDATE membre SET balance = {p.GetBalance().ToString().Replace(',', '.')} WHERE id = {p.GetID()}";
+            objCmd.CommandText = reqI;
+            int nbMaj = objCmd.ExecuteNonQuery();
+            return nbMaj == 1;
+        }
+        public static float GetBalance(Participant p)
+        {
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+
+            MySqlDataReader rdr;
+            float Balance = 0;
+            String reqCount = $"SELECT balance FROM membre WHERE id ={p.GetID()}";
+            objCmd.CommandText = reqCount;
+            rdr = objCmd.ExecuteReader();
+
+            if (rdr.Read())
+            {
+                Balance = (float)rdr["balance"];
+
+            }
+            rdr.Close();
+            return Balance;
+        }
+
+        public static bool AjouterConcerner(Participant p, int IdDepense)
+        {
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+            String reqI = $"INSERT INTO concerner (id_concerne,id_depense) VALUES({p.GetID()},'{IdDepense}')";
             objCmd.CommandText = reqI;
             int nbMaj = objCmd.ExecuteNonQuery();
 

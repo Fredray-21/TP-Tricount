@@ -38,8 +38,6 @@ namespace TP_TRICOUNT
         private void btnAddDep_Click(object sender, EventArgs e)
         {
             Participant payeur = (Participant)lbListParticipant.SelectedItem;
-           
-
             if (payeur == null)
             {
                 MessageBox.Show("Veuillez selectionée un Payeur", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -53,7 +51,7 @@ namespace TP_TRICOUNT
                 MessageBox.Show("Veuiller rentré un Montant Valide", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
-           
+
             else
             {
                 List<Participant> pConcerne = new List<Participant>();
@@ -66,6 +64,7 @@ namespace TP_TRICOUNT
                     MessageBox.Show("Veuillez selectionée les Concernés", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
+
                 bool convertOK = float.TryParse(txtBMontant.Text.Replace('.', ','), out float Montant);
                 if (convertOK)
                 {
@@ -74,10 +73,50 @@ namespace TP_TRICOUNT
                     if (LastID != null)
                     {
                         int IdDepense = Convert.ToInt32(LastID);
+                        float montantUnitaire = 0;
 
-                        foreach (Participant ParticipantConcere in pConcerne)
+
+                        float balance = LeTricount.GetBalance(payeur); // set balance du payeur
+                        payeur.SetBalance(balance);
+                        float MontantPayeur = Montant + montantUnitaire;
+                        payeur.AddToBalance(MontantPayeur); // on ajoute le prix total à la balance du payeur
+                        LeTricount.AjouterBalance(payeur);
+                        // ici le payeur a été crédité de ça balance
+
+
+                        foreach (Participant ParticipantConcerne in pConcerne) // on ajoute les négatif
                         {
-                            LeTricount.AjouterConcerner(ParticipantConcere.GetID(), IdDepense);
+                            LeTricount.AjouterConcerner(ParticipantConcerne, IdDepense);
+                            balance = LeTricount.GetBalance(ParticipantConcerne);
+                            if (ParticipantConcerne.CompareTo(payeur) != 0) // si pas payeur on set ça balance == a celle de la BDD
+                            {
+                                ParticipantConcerne.SetBalance(balance);
+                            }
+                          
+
+                            if (pConcerne.Count() > 1)
+                            {
+                                if (ParticipantConcerne.CompareTo(payeur) == 0) // si c'est le payeur 
+                                {
+                                    montantUnitaire = Montant - Montant / pConcerne.Count(); // Montant Total - Montant par personne à payer
+                                    ParticipantConcerne.AddToBalance(montantUnitaire);
+                                    LeTricount.AjouterBalance(ParticipantConcerne);
+                                }
+                                else
+                                {
+                                    montantUnitaire = Montant / pConcerne.Count() * (-1); // Montant par personne à payer
+                                    ParticipantConcerne.AddToBalance(montantUnitaire);
+                                    LeTricount.AjouterBalance(ParticipantConcerne);
+                                    
+                                }
+                            }
+                            else
+                            {
+                                float MontantConcerne = Montant*(-1); // ici on retire le total du Montant ajouté + haut car il est seul concerné
+
+                                ParticipantConcerne.AddToBalance(MontantConcerne);
+                                LeTricount.AjouterBalance(ParticipantConcerne);
+                            }
                         }
 
                         this.Hide();
