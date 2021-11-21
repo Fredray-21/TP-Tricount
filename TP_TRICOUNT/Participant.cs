@@ -97,7 +97,6 @@ namespace TP_TRICOUNT
 
         public int CompareTo(object? obj)
         {
-            // return Math.Abs(this.balance).CompareTo(Math.Abs(((Participant)obj).balance)) *(-1);
             return this.ID.CompareTo(((Participant)obj).ID);
         }
 
@@ -109,7 +108,7 @@ namespace TP_TRICOUNT
         public override string ToString()
         {
 
-            return $"{this.ID} / {this.nom} / {this.balance} / {this.monCoutTotal} / {this.remboursement} / {this.ID_tricount} / ";
+            return $"{this.nom} ";
 
 
 

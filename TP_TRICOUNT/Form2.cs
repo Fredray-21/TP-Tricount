@@ -15,10 +15,8 @@ namespace TP_TRICOUNT
         private void MAJlisteBParticipant()
         {
             lbListParticipants.Items.Clear();
-            foreach (Participant p in LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount))
-            {
-                lbListParticipants.Items.Add(p.GetNom());
-            }
+            lbListParticipants.Items.AddRange(LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount).ToArray());
+
         }
 
         public void MAJlblSession()
@@ -40,7 +38,7 @@ namespace TP_TRICOUNT
                 lblTotalDep.Text = montant.ToString() + " €";
             }
         }
-       
+
         public void MAJlisteDepence()
         {
             DataGVdepense.Rows.Clear();
@@ -158,6 +156,9 @@ namespace TP_TRICOUNT
             }
         }
 
-        
+        private void btnDelDep_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

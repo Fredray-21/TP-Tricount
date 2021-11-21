@@ -64,6 +64,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDelDep = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -82,6 +83,7 @@
             // 
             // tabDepense
             // 
+            this.tabDepense.Controls.Add(this.btnDelDep);
             this.tabDepense.Controls.Add(this.btnSuprParticipant);
             this.tabDepense.Controls.Add(this.btnRetour);
             this.tabDepense.Controls.Add(this.label3);
@@ -371,6 +373,16 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
+            // btnDelDep
+            // 
+            this.btnDelDep.Location = new System.Drawing.Point(611, 369);
+            this.btnDelDep.Name = "btnDelDep";
+            this.btnDelDep.Size = new System.Drawing.Size(79, 24);
+            this.btnDelDep.TabIndex = 16;
+            this.btnDelDep.Text = "button1";
+            this.btnDelDep.UseVisualStyleBackColor = true;
+            this.btnDelDep.Click += new System.EventHandler(this.btnDelDep_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -420,5 +432,6 @@
         private DataGridViewTextBoxColumn montant;
         private DataGridViewTextBoxColumn concerner;
         private ListBox LBequilibreParticipant;
+        private Button btnDelDep;
     }
 }
