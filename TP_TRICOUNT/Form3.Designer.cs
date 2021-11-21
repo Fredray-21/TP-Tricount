@@ -30,6 +30,7 @@
         {
             this.txtBTitre = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.btnAddDep = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxPourQui = new System.Windows.Forms.CheckedListBox();
@@ -40,7 +41,6 @@
             this.txtBMontant = new System.Windows.Forms.TextBox();
             this.lblMontant = new System.Windows.Forms.Label();
             this.lblTitre = new System.Windows.Forms.Label();
-            this.btnRetour = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,17 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nouvelle Dépense";
+            // 
+            // btnRetour
+            // 
+            this.btnRetour.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRetour.Location = new System.Drawing.Point(6, 501);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(81, 36);
+            this.btnRetour.TabIndex = 12;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // btnAddDep
             // 
@@ -169,17 +180,6 @@
             this.lblTitre.TabIndex = 2;
             this.lblTitre.Text = "Titre :";
             // 
-            // btnRetour
-            // 
-            this.btnRetour.Font = new System.Drawing.Font("Montserrat", 12.11881F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRetour.Location = new System.Drawing.Point(6, 501);
-            this.btnRetour.Name = "btnRetour";
-            this.btnRetour.Size = new System.Drawing.Size(81, 36);
-            this.btnRetour.TabIndex = 12;
-            this.btnRetour.Text = "Retour";
-            this.btnRetour.UseVisualStyleBackColor = true;
-            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -187,7 +187,7 @@
             this.ClientSize = new System.Drawing.Size(459, 567);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Tricount";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

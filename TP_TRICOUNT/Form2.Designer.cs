@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabDepense = new System.Windows.Forms.TabPage();
+            this.btnSuprParticipant = new System.Windows.Forms.Button();
             this.btnRetour = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddParticipant = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSuprParticipant = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -94,6 +94,16 @@
             this.tabDepense.TabIndex = 0;
             this.tabDepense.Text = "DÉPENSES";
             this.tabDepense.UseVisualStyleBackColor = true;
+            // 
+            // btnSuprParticipant
+            // 
+            this.btnSuprParticipant.Location = new System.Drawing.Point(727, 286);
+            this.btnSuprParticipant.Name = "btnSuprParticipant";
+            this.btnSuprParticipant.Size = new System.Drawing.Size(142, 42);
+            this.btnSuprParticipant.TabIndex = 15;
+            this.btnSuprParticipant.Text = "Supprimer le Participant";
+            this.btnSuprParticipant.UseVisualStyleBackColor = true;
+            this.btnSuprParticipant.Click += new System.EventHandler(this.btnSuprParticipant_Click);
             // 
             // btnRetour
             // 
@@ -324,16 +334,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
-            // btnSuprParticipant
-            // 
-            this.btnSuprParticipant.Location = new System.Drawing.Point(727, 286);
-            this.btnSuprParticipant.Name = "btnSuprParticipant";
-            this.btnSuprParticipant.Size = new System.Drawing.Size(142, 42);
-            this.btnSuprParticipant.TabIndex = 15;
-            this.btnSuprParticipant.Text = "Supprimer le Participant";
-            this.btnSuprParticipant.UseVisualStyleBackColor = true;
-            this.btnSuprParticipant.Click += new System.EventHandler(this.btnSuprParticipant_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -342,7 +342,7 @@
             this.Controls.Add(this.lblLeTricountActuel);
             this.Controls.Add(this.tabControl);
             this.Name = "Form2";
-            this.Text = "Form1";
+            this.Text = "Tricount";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabDepense.ResumeLayout(false);

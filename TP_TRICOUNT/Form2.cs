@@ -105,14 +105,14 @@ namespace TP_TRICOUNT
             }
             else
             {
-                lbListParticipants.Items.Add(txtBNomParticipant.Text);
                 Participant p = new Participant(txtBNomParticipant.Text, LeTricount.SessionIdTricount.GetID());
+
                 object LastID = LeTricount.AjouterParticipant(p);
                 if (LastID != null)
                 {
                     txtBNomParticipant.Clear();
                     MessageBox.Show($"L'ajout à bien été effectue le Participant a pour N°{LastID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MAJlisteBParticipant();
                 }
                 else
                 {

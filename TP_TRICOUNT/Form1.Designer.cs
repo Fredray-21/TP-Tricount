@@ -33,6 +33,7 @@
             this.btnAddTricount = new System.Windows.Forms.Button();
             this.btnSelectTricount = new System.Windows.Forms.Button();
             this.btnDeleteTricount = new System.Windows.Forms.Button();
+            this.btnQuitter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LBtricount
@@ -81,18 +82,29 @@
             this.btnDeleteTricount.UseVisualStyleBackColor = true;
             this.btnDeleteTricount.Click += new System.EventHandler(this.btnDeleteTricount_Click);
             // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Location = new System.Drawing.Point(276, 269);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(79, 24);
+            this.btnQuitter.TabIndex = 5;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 304);
+            this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.btnDeleteTricount);
             this.Controls.Add(this.btnSelectTricount);
             this.Controls.Add(this.btnAddTricount);
             this.Controls.Add(this.txtBNameTricount);
             this.Controls.Add(this.LBtricount);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Tricount";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +117,6 @@
         private Button btnAddTricount;
         private Button btnSelectTricount;
         private Button btnDeleteTricount;
+        private Button btnQuitter;
     }
 }
