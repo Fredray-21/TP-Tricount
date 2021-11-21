@@ -49,10 +49,11 @@ namespace TP_TRICOUNT
             foreach (Depense d in listDepense)
             {
                 List<Participant> listPconcerner = LeTricount.GetPconcernePARtricount(d);
-                string txt = "";
 
+                string txt = "";
                 foreach (Participant p in listPconcerner)
                 {
+
                     txt = txt + p.GetNom() + " / ";
                 }
 
@@ -60,6 +61,7 @@ namespace TP_TRICOUNT
                 string[] row;
                 row = new string[]
                 {
+                "Delete",
                 d.GetID().ToString(),
                 d.GetTitre().ToString(),
                 d.GetPayeur().GetNom().ToString(),
@@ -140,6 +142,7 @@ namespace TP_TRICOUNT
 
         public void MAJLBequilibreParticipant()
         {
+            LBequilibreParticipant.Items.Clear();
             List<Participant> lesParticicpants = LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount);
             lesParticicpants.Sort(new TriBalance());
             foreach (Participant p in LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount))
@@ -156,9 +159,32 @@ namespace TP_TRICOUNT
             }
         }
 
-        private void btnDelDep_Click(object sender, EventArgs e)
+        private void DataGVdepense_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (DataGVdepense.Columns[e.ColumnIndex].Name == "Delete" && e.RowIndex >= 0)
+            {
+                if (MessageBox.Show("Are you sur?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    List<Depense> listDepense = LeTricount.GetToutDepensePARtricount(LeTricount.SessionIdTricount);
 
+                    foreach (Depense d in listDepense)
+                    {
+                        List<Participant> listPConcerner = LeTricount.GetPconcernePARtricount(d); // ici on set la list des concerner dans la depense
+                        foreach (Participant Participant in listPConcerner) // ici on set la balance des concerner
+                        {
+                            Participant.SetBalanceParDefault(LeTricount.GetBalance(Participant));
+                        }
+                        d.SetPConcernes(listPConcerner);
+
+                    }
+                    LeTricount.SuprimeDepense(listDepense[e.RowIndex]);
+                    MessageBox.Show("La Dépense à bien été supprimer ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MAJlisteDepence();
+                    MAJLBequilibreParticipant();
+
+                }
+            }
         }
     }
 }

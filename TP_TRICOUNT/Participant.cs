@@ -71,7 +71,7 @@ namespace TP_TRICOUNT
             return this.remboursement;
         }
 
-        public bool SetBalance(float Balance)
+        public bool SetBalanceParDefault(float Balance)
         {
             this.balance = Balance;
             return true;

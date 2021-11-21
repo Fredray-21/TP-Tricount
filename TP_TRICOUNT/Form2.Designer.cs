@@ -46,6 +46,7 @@
             this.lbListParticipants = new System.Windows.Forms.ListBox();
             this.btnAddDepense = new System.Windows.Forms.Button();
             this.DataGVdepense = new System.Windows.Forms.DataGridView();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.payeur = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +65,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDelDep = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -83,7 +83,6 @@
             // 
             // tabDepense
             // 
-            this.tabDepense.Controls.Add(this.btnDelDep);
             this.tabDepense.Controls.Add(this.btnSuprParticipant);
             this.tabDepense.Controls.Add(this.btnRetour);
             this.tabDepense.Controls.Add(this.label3);
@@ -174,6 +173,7 @@
             // 
             // DataGVdepense
             // 
+            this.DataGVdepense.AllowUserToAddRows = false;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.DataGVdepense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGVdepense.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -181,6 +181,7 @@
             this.DataGVdepense.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.DataGVdepense.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGVdepense.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Delete,
             this.id,
             this.dataGridViewTextBoxColumn5,
             this.payeur,
@@ -202,6 +203,12 @@
             this.DataGVdepense.RowTemplate.Height = 27;
             this.DataGVdepense.Size = new System.Drawing.Size(707, 313);
             this.DataGVdepense.TabIndex = 5;
+            this.DataGVdepense.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGVdepense_CellContentClick);
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
             // 
             // id
             // 
@@ -373,16 +380,6 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
-            // btnDelDep
-            // 
-            this.btnDelDep.Location = new System.Drawing.Point(611, 369);
-            this.btnDelDep.Name = "btnDelDep";
-            this.btnDelDep.Size = new System.Drawing.Size(79, 24);
-            this.btnDelDep.TabIndex = 16;
-            this.btnDelDep.Text = "button1";
-            this.btnDelDep.UseVisualStyleBackColor = true;
-            this.btnDelDep.Click += new System.EventHandler(this.btnDelDep_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -425,13 +422,13 @@
         private Label label3;
         private Button btnRetour;
         private Button btnSuprParticipant;
+        private ListBox LBequilibreParticipant;
+        private DataGridViewButtonColumn Delete;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn payeur;
         private DataGridViewTextBoxColumn date;
         private DataGridViewTextBoxColumn montant;
         private DataGridViewTextBoxColumn concerner;
-        private ListBox LBequilibreParticipant;
-        private Button btnDelDep;
     }
 }

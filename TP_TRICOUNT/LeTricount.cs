@@ -110,7 +110,7 @@ namespace TP_TRICOUNT
             return lesParticipants;
         }
 
-       
+
 
         public static List<Depense> GetToutDepensePARtricount(Tricount t)
         {
@@ -183,6 +183,7 @@ namespace TP_TRICOUNT
 
         public static bool DeleteParticipant(Participant p)
         {
+            lesParticipants.Remove(p);
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
             String reqI = $"DELETE FROM membre WHERE id = '{p.GetID()}' and NOT EXISTS (SELECT id_concerne FROM concerner WHERE id_concerne = {p.GetID()})";
@@ -218,7 +219,7 @@ namespace TP_TRICOUNT
         {
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
-            String reqI = $"UPDATE membre SET balance = {p.GetBalance().ToString().Replace(',', '.')} WHERE id = {p.GetID()}";
+            String reqI = $"UPDATE membre SET balance = '{p.GetBalance().ToString().Replace(',', '.')}' WHERE id = {p.GetID()}";
             objCmd.CommandText = reqI;
             int nbMaj = objCmd.ExecuteNonQuery();
             return nbMaj == 1;
@@ -276,10 +277,58 @@ namespace TP_TRICOUNT
             return Total;
         }
 
-        private static bool SuprimeDepense(Depense d)
+        public static bool SuprimeDepense(Depense d)
         {
-            lesDepenses.Remove(d);
-            return true;
+            float Montant = d.GetMontant();
+            List<Participant> pConcerner = d.GetPConcernes();
+            Participant payeur = d.GetPayeur();
+            payeur.SetBalanceParDefault(LeTricount.GetBalance(payeur));
+            float MontantUnitaire = Montant / pConcerner.Count();
+
+            MySqlCommand objCmd;
+            String reqI = "";
+            int nbMaj = 0;
+
+            payeur.AddToBalance(Montant * (-1)); // on retir le montant de la depense au payeur
+            objCmd = conn.CreateCommand();
+            reqI = $"UPDATE membre SET balance = {payeur.GetBalance().ToString().Replace(',', '.')} WHERE id = {payeur.GetID()}";
+            objCmd.CommandText = reqI;
+            nbMaj = objCmd.ExecuteNonQuery();
+            if (nbMaj == 0)
+            {
+                return false;
+            }
+
+            foreach (Participant p in pConcerner)
+            {
+                if (p.CompareTo(payeur) == 0)  // on rajoute la part de la dépense au participant qui ne sont pas payeur
+                {
+                    p.SetBalanceParDefault(payeur.GetBalance());
+                }
+                p.AddToBalance(MontantUnitaire);
+
+
+                objCmd = conn.CreateCommand();
+                reqI = $"UPDATE membre SET balance = {p.GetBalance().ToString().Replace(',', '.')} WHERE id = {p.GetID()}";
+                objCmd.CommandText = reqI;
+                nbMaj = objCmd.ExecuteNonQuery();
+                if (nbMaj == 0)
+                {
+                    return false;
+                }
+
+            }
+
+            objCmd = conn.CreateCommand();
+            reqI = $"DELETE FROM depense WHERE idDep = '{d.GetID()}'";
+            objCmd.CommandText = reqI;
+            nbMaj = objCmd.ExecuteNonQuery();
+            if (nbMaj == 1)
+            {
+                lesDepenses.Remove(d);
+                return true;
+            }
+            return false;
 
         }
     }
