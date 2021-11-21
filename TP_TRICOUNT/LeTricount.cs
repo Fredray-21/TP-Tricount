@@ -143,7 +143,6 @@ namespace TP_TRICOUNT
 
             MySqlDataReader rdr;
             List<Participant> lesConcerne = new List<Participant>();
-            DateTime date = new DateTime();
             String reqCount = $"SELECT id,nom,balance,monCoutTotal,id_tricount FROM depense INNER JOIN concerner ON depense.idDep = concerner.id_depense INNER JOIN membre ON membre.id = concerner.id_concerne where idDep = {d.GetID()}";
             objCmd.CommandText = reqCount;
             rdr = objCmd.ExecuteReader();

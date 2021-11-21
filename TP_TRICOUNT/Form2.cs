@@ -9,13 +9,16 @@ namespace TP_TRICOUNT
             MAJlisteBParticipant();
             MAJlisteDepence();
             MAJmontantTotal();
-            this.DataGVdepense.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            MAJLBequilibreParticipant();
 
         }
         private void MAJlisteBParticipant()
         {
             lbListParticipants.Items.Clear();
-            lbListParticipants.Items.AddRange(LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount).ToArray());
+            foreach (Participant p in LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount))
+            {
+                lbListParticipants.Items.Add(p.GetNom());
+            }
         }
 
         public void MAJlblSession()
@@ -37,35 +40,7 @@ namespace TP_TRICOUNT
                 lblTotalDep.Text = montant.ToString() + " €";
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            /*Participant payeur = new Participant("jules");
-
-            Participant p1 = new Participant("p1");
-            Participant p2 = new Participant("p2");
-            Participant p3 = new Participant("p3");
-            Participant p4 = new Participant("p4");
-
-            List<Participant> participants = new List<Participant>();
-            participants.Add(p1);
-            participants.Add(p2);
-            participants.Add(p3);
-            participants.Add(p4);
-            Depense d = new Depense("test1", 333, DateTime.Now,payeur, participants);
-            
-            string[] row;
-            row = new string[]
-            {
-                d.GetTitre().ToString(),
-                d.GetPayeur().GetNom().ToString(),
-                d.GetDate().ToString(),
-                d.GetMontant().ToString()
-                };
-            DataGVdepense.Rows.Add(row);
-            */
-
-        }
-
+       
         public void MAJlisteDepence()
         {
             DataGVdepense.Rows.Clear();
@@ -163,5 +138,26 @@ namespace TP_TRICOUNT
                 }
             }
         }
+
+
+        public void MAJLBequilibreParticipant()
+        {
+            List<Participant> lesParticicpants = LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount);
+            lesParticicpants.Sort(new TriBalance());
+            foreach (Participant p in LeTricount.GetToutParticipantPARtricount(LeTricount.SessionIdTricount))
+            {
+                if (p.GetBalance() >= 0)
+                {
+                    LBequilibreParticipant.Items.Add(p.GetNom() + "|" + p.GetBalance().ToString());
+                }
+                else
+                {
+                    LBequilibreParticipant.Items.Add(p.GetBalance().ToString() + "|" + p.GetNom());
+
+                }
+            }
+        }
+
+        
     }
 }

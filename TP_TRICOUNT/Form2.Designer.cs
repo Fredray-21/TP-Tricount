@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -58,8 +57,8 @@
             this.titleLBLtotalDepense = new System.Windows.Forms.Label();
             this.titleLBLcoutTotal = new System.Windows.Forms.Label();
             this.tabEquilibres = new System.Windows.Forms.TabPage();
+            this.LBequilibreParticipant = new System.Windows.Forms.ListBox();
             this.lblLeTricountActuel = new System.Windows.Forms.Label();
-            this.depenseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +67,7 @@
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depenseBindingSource)).BeginInit();
+            this.tabEquilibres.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -310,6 +309,7 @@
             // 
             // tabEquilibres
             // 
+            this.tabEquilibres.Controls.Add(this.LBequilibreParticipant);
             this.tabEquilibres.Location = new System.Drawing.Point(4, 26);
             this.tabEquilibres.Name = "tabEquilibres";
             this.tabEquilibres.Padding = new System.Windows.Forms.Padding(3);
@@ -318,6 +318,16 @@
             this.tabEquilibres.Text = "ÉQUILIBRES";
             this.tabEquilibres.UseVisualStyleBackColor = true;
             // 
+            // LBequilibreParticipant
+            // 
+            this.LBequilibreParticipant.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LBequilibreParticipant.FormattingEnabled = true;
+            this.LBequilibreParticipant.ItemHeight = 17;
+            this.LBequilibreParticipant.Location = new System.Drawing.Point(3, 6);
+            this.LBequilibreParticipant.Name = "LBequilibreParticipant";
+            this.LBequilibreParticipant.Size = new System.Drawing.Size(165, 208);
+            this.LBequilibreParticipant.TabIndex = 0;
+            // 
             // lblLeTricountActuel
             // 
             this.lblLeTricountActuel.AutoSize = true;
@@ -325,10 +335,6 @@
             this.lblLeTricountActuel.Name = "lblLeTricountActuel";
             this.lblLeTricountActuel.Size = new System.Drawing.Size(0, 17);
             this.lblLeTricountActuel.TabIndex = 8;
-            // 
-            // depenseBindingSource
-            // 
-            this.depenseBindingSource.DataSource = typeof(TP_TRICOUNT.Depense);
             // 
             // Nom
             // 
@@ -374,12 +380,11 @@
             this.Controls.Add(this.tabControl);
             this.Name = "Form2";
             this.Text = "Tricount";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl.ResumeLayout(false);
             this.tabDepense.ResumeLayout(false);
             this.tabDepense.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.depenseBindingSource)).EndInit();
+            this.tabEquilibres.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +405,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private BindingSource depenseBindingSource;
         private Label lblLeTricountActuel;
         private Button btnAddDepense;
         private ListBox lbListParticipants;
@@ -415,5 +419,6 @@
         private DataGridViewTextBoxColumn date;
         private DataGridViewTextBoxColumn montant;
         private DataGridViewTextBoxColumn concerner;
+        private ListBox LBequilibreParticipant;
     }
 }

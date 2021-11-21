@@ -28,7 +28,7 @@ namespace TP_TRICOUNT
             this.mesDepenses = new List<Depense>();
         }
 
-        public Participant(int Id,String Nom, int Id_Tricount)
+        public Participant(int Id, String Nom, int Id_Tricount)
         {
             this.ID = Id;
             this.nom = Nom;
@@ -39,7 +39,7 @@ namespace TP_TRICOUNT
             this.mesDepenses = new List<Depense>();
         }
 
-        public Participant(int Id, String Nom,float Balance, float MonCoutTotal, int ID_tricount)
+        public Participant(int Id, String Nom, float Balance, float MonCoutTotal, int ID_tricount)
         {
             this.ID = Id;
             this.nom = Nom;
@@ -52,7 +52,7 @@ namespace TP_TRICOUNT
 
         public int GetID()
         {
-           return this.ID;
+            return this.ID;
         }
         public String GetNom()
         {
@@ -94,7 +94,7 @@ namespace TP_TRICOUNT
             return true;
         }
 
-       
+
         public int CompareTo(object? obj)
         {
             // return Math.Abs(this.balance).CompareTo(Math.Abs(((Participant)obj).balance)) *(-1);
@@ -108,8 +108,14 @@ namespace TP_TRICOUNT
 
         public override string ToString()
         {
-            return $"{this.nom} / {this.balance}";
+
+            return $"{this.ID} / {this.nom} / {this.balance} / {this.monCoutTotal} / {this.remboursement} / {this.ID_tricount} / ";
+
+
+
         }
+
+      
         /*  public override bool Equals(Object obj)
 {
 //Check for null and compare run-time types.
