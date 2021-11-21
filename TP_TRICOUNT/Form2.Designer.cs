@@ -56,6 +56,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSuprParticipant = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabDepense.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGVdepense)).BeginInit();
@@ -74,6 +75,7 @@
             // 
             // tabDepense
             // 
+            this.tabDepense.Controls.Add(this.btnSuprParticipant);
             this.tabDepense.Controls.Add(this.btnRetour);
             this.tabDepense.Controls.Add(this.label3);
             this.tabDepense.Controls.Add(this.btnAddParticipant);
@@ -322,6 +324,16 @@
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 105;
             // 
+            // btnSuprParticipant
+            // 
+            this.btnSuprParticipant.Location = new System.Drawing.Point(727, 286);
+            this.btnSuprParticipant.Name = "btnSuprParticipant";
+            this.btnSuprParticipant.Size = new System.Drawing.Size(142, 42);
+            this.btnSuprParticipant.TabIndex = 15;
+            this.btnSuprParticipant.Text = "Supprimer le Participant";
+            this.btnSuprParticipant.UseVisualStyleBackColor = true;
+            this.btnSuprParticipant.Click += new System.EventHandler(this.btnSuprParticipant_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -371,5 +383,6 @@
         private DataGridViewTextBoxColumn montant;
         private DataGridViewTextBoxColumn concerner;
         private Button btnRetour;
+        private Button btnSuprParticipant;
     }
 }

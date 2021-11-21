@@ -77,7 +77,7 @@ namespace TP_TRICOUNT
             return lesTricount;
         }
 
-        internal static bool DeleteTricount(Tricount t)
+        public static bool DeleteTricount(Tricount t)
         {
             MySqlCommand objCmd;
             objCmd = conn.CreateCommand();
@@ -182,6 +182,16 @@ namespace TP_TRICOUNT
 
         }
 
+        public static bool DeleteParticipant(Participant p)
+        {
+            MySqlCommand objCmd;
+            objCmd = conn.CreateCommand();
+            String reqI = $"DELETE FROM membre WHERE id = '{p.GetID()}' and NOT EXISTS (SELECT id_concerne FROM concerner WHERE id_concerne = {p.GetID()})";
+            objCmd.CommandText = reqI;
+            int nbMaj = objCmd.ExecuteNonQuery();
+            return nbMaj == 1;
+
+        }
 
         public static object AjouterDepense(Depense d)
         {
@@ -202,19 +212,6 @@ namespace TP_TRICOUNT
             {
                 return -1;
             }
-
-            /*lesDepenses.Add(d);
-            Participant payeur = d.GetPayeur();
-            List<Participant> listeP = d.GetPConcernes();
-            foreach(Participant p in listeP)
-            {
-                p.AddDepense(d);
-            }
-            if(listeP.IndexOf(payeur) <= 0)
-            {
-                payeur.AddDepense(d);
-            }
-            return true; */
 
         }
 

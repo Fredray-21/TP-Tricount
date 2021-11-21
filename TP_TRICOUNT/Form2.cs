@@ -136,5 +136,31 @@ namespace TP_TRICOUNT
             form1.Show();
             form1.Closed += (s, args) => this.Close();
         }
+
+        private void btnSuprParticipant_Click(object sender, EventArgs e)
+        {
+            Participant p = (Participant)lbListParticipants.SelectedItem;
+            if(p == null)
+            {
+                MessageBox.Show("Veuiller Selectioné un Participante", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (DialogResult.Yes == MessageBox.Show("Voulez-vous supprimer ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                {
+                    if (LeTricount.DeleteParticipant(p))
+                    {
+                        MessageBox.Show("Le Participant à bien été supprimer ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MAJlisteBParticipant();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Le Participant n'a pas été Supprimer car il est impliquer dans au moin une dépense", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+
+                }
+            }
+        }
     }
 }
