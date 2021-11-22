@@ -77,7 +77,7 @@ namespace TP_TRICOUNT
 
 
                         float balance = LeTricount.GetBalance(payeur); // set balance du payeur
-                        payeur.SetBalance(balance);
+                        payeur.SetBalanceParDefault(balance);
                         float MontantPayeur = Montant + montantUnitaire;
                         payeur.AddToBalance(MontantPayeur); // on ajoute le prix total à la balance du payeur
                         LeTricount.AjouterBalance(payeur);
@@ -90,7 +90,7 @@ namespace TP_TRICOUNT
                             balance = LeTricount.GetBalance(ParticipantConcerne);
                             if (ParticipantConcerne.CompareTo(payeur) != 0) // si pas payeur on set ça balance == a celle de la BDD
                             {
-                                ParticipantConcerne.SetBalance(balance);
+                                ParticipantConcerne.SetBalanceParDefault(balance);
                             }
                           
 
