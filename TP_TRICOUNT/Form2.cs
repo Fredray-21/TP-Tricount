@@ -179,10 +179,9 @@ namespace TP_TRICOUNT
                     }
                     LeTricount.SuprimeDepense(listDepense[e.RowIndex]);
                     MessageBox.Show("La Dépense à bien été supprimer ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     MAJlisteDepence();
                     MAJLBequilibreParticipant();
-
+                    MAJmontantTotal();
                 }
             }
         }
